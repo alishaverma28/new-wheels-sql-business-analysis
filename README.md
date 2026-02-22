@@ -1,115 +1,170 @@
-# 🚗 New-Wheels Vehicle Sales Analysis (SQL)
+# 🚗 New-Wheels Sales & Customer Experience Analysis (SQL)
 
-## 📌 Project Overview
+## ⭐ Executive Summary
 
-This project focuses on performing end-to-end SQL analysis for **New-Wheels**, a vehicle resale company experiencing declining sales and customer satisfaction.
-The objective is to analyze business data and generate a **quarterly KPI report** to help leadership understand business health and make data-driven decisions.
+New-Wheels, a vehicle resale platform, experienced a steady decline in sales and customer satisfaction across recent quarters.
+This project builds a **CEO-level quarterly KPI reporting layer using SQL** to identify the drivers behind revenue decline, worsening customer feedback, and operational inefficiencies.
 
-The analysis covers customers, orders, revenue, feedback, discounts, vehicle preference, and shipping performance.
-
----
-
-## 🎯 Business Problem
-
-New-Wheels has observed:
-
-* Declining sales over recent quarters
-* Drop in new customers
-* Negative after-sales feedback
-* Potential operational issues impacting revenue
-
-Leadership requires a quarterly business performance report to identify root causes and improvement areas.
+The analysis shows that revenue dropped primarily due to decreasing order volume, increasing customer dissatisfaction, and longer shipping timelines — highlighting clear areas for business improvement.
 
 ---
 
-## 📂 Dataset Description
+## 📌 Business Problem
 
-The dataset contains multiple relational tables including:
+The company observed:
 
-* **Customers** — customer demographics, state, payment methods
-* **Products** — vehicle make, model, year, price
-* **Orders** — order details, revenue, discounts, feedback
-* **Shipping** — order date, ship date, delivery timelines
+* Declining quarterly sales and revenue
+* Drop in new customer acquisition
+* Negative after-sales feedback impacting trust
+* Potential shipping delays affecting customer experience
 
-A data dictionary is provided describing each column.
+Leadership required a structured quarterly performance report to monitor business health and support decision-making.
 
 ---
 
-## 🛠️ Tools & Skills Used
+## 🎯 Project Objectives
 
-* SQL
-* Joins (INNER, LEFT)
+* Design core business KPIs using SQL
+* Analyze customer satisfaction trends over time
+* Identify drivers of revenue and order decline
+* Evaluate brand preference and regional demand
+* Investigate operational impact of shipping delays
+* Deliver decision-ready business insights
+
+---
+
+## 🗂️ Dataset Overview
+
+Relational database tables used:
+
+* **customer_t** → customer demographics, state, payment method
+* **product_t** → vehicle maker, vehicle details
+* **order_t** → order data, revenue, discount, feedback, dates
+
+A data dictionary was used to understand schema and relationships.
+
+---
+
+## 🧠 Analytical Approach (Industry Workflow)
+
+1. Schema exploration and relationship mapping
+2. KPI layer creation using SQL queries
+3. Quarterly trend analysis (revenue, orders, feedback)
+4. Root-cause investigation combining customer + operations data
+5. Market and brand preference analysis
+6. Insight generation and recommendation framework
+
+---
+
+## 🛠️ Tech Stack & Skills
+
+* SQL (Advanced)
+* Joins & relational analysis
 * Aggregations
-* CASE statements
-* CTE (Common Table Expressions)
-* Window Functions
-* KPI Analysis
-* Business Data Analysis
-* Data Storytelling
+* CASE statements (feedback → rating score)
+* CTE (QoQ revenue analysis)
+* Window functions (market share)
+* Subqueries
+* Date functions (shipping analysis)
+* KPI design & business analytics
 
 ---
 
-## 📊 Key Analysis Performed
+## 📊 KPI Layer Built Using SQL
 
-* Customer distribution across states
-* Average customer rating by quarter
-* Feedback trend and dissatisfaction analysis
-* Top vehicle makers preferred by customers
-* Most preferred vehicle make by state
-* Order trend by quarter
-* Revenue trend and QoQ revenue change
-* Combined revenue and order analysis
-* Discount analysis by payment method
-* Shipping performance and delivery time analysis
+### 📈 Revenue KPIs
+
+* Total Revenue by Quarter
+* Quarter-over-Quarter Revenue Change (%)
+* Overall Revenue Decline %
+
+### 📦 Demand KPIs
+
+* Total Orders by Quarter
+* Order Volume Decline %
+
+### ⭐ Customer Experience KPIs
+
+* Average Customer Rating by Quarter
+* Feedback Distribution Percentage
+* Dissatisfaction Trend
+
+### 🚚 Operational KPIs
+
+* Average Shipping Time by Quarter
+* Shipping Performance Category (Fast / Medium / Slow)
+
+### 💳 Pricing KPIs
+
+* Average Discount by Credit Card Type
+
+### 🚘 Market & Product KPIs
+
+* Top 5 Vehicle Makers
+* Market Share by Vehicle Maker
+* Most Preferred Brand by State
+* Customer Distribution by State
 
 ---
 
 ## 🔎 Key Business Insights
 
-* Customer satisfaction declined across quarters, with Q4 showing the weakest ratings
-* Revenue dropped significantly (~40%), primarily driven by reduced order volume
-* Order volume and revenue show a strong positive correlation
-* Shipping delays increased in later quarters and may impact satisfaction
-* Certain states represent strong customer markets and require retention focus
-* Vehicle maker preference varies by region, indicating opportunity for targeted marketing
+* Revenue declined ~40%, mainly driven by reduced order volume
+* Customer satisfaction worsened consistently across quarters
+* Orders and revenue declined proportionally, indicating a demand-side issue
+* Shipping time increased in later quarters, suggesting operational bottlenecks
+* Slow shipping correlates with lower order value and fewer orders
+* Strong customer concentration exists in specific states (retention opportunity)
+* Brand preference varies by region, enabling targeted marketing strategies
 
 ---
 
-## ✅ Outcome
+## 💡 Business Recommendations
 
-The project demonstrates how SQL can be used to:
+* Improve shipping SLAs to reduce delivery delays
+* Investigate service quality decline after Q1
+* Launch retention campaigns in high-customer states
+* Monitor feedback KPIs quarterly as an early warning signal
+* Promote top vehicle makers regionally
+* Optimize discount strategy using payment behavior insights
 
-* Answer leadership-level business questions
-* Build KPI reports
-* Identify drivers of revenue decline
-* Detect operational issues impacting customer experience
-* Provide actionable insights for strategic decision-making
+---
+
+## 🏗️ Production Thinking (Senior Signal)
+
+This project applies real analytics workflow:
+
+* KPI-first analysis approach
+* Root-cause investigation (not just reporting)
+* Modular SQL queries for reuse
+* Insight → recommendation mapping
+* Leadership-level reporting mindset
 
 ---
 
 ## 📁 Repository Structure
 
 ```
-new_wheels_business_analysis.sql   # SQL solution file
-new_wheels_dumpfile.sql            # Database dump file
-new_wheels_sales.txt               # Data dictionary
-README.md                          # Project documentation
+new_wheels_business_analysis.sql   → SQL queries with insights  
+new_wheels_dumpfile.sql            → Database dump file  
+new_wheels_sales.txt               → Data dictionary  
+README.md                          → Project documentation  
 ```
 
 ---
 
 ## 🚀 How to Run
 
-1. Create database:
+1. Create database
 
 ```
 CREATE DATABASE new_wheels;
 USE new_wheels;
 ```
 
-2. Import dump file.
+2. Import dump file
 
-3. Run:
+3. Execute:
 
 ```
 new_wheels_business_analysis.sql
@@ -117,7 +172,18 @@ new_wheels_business_analysis.sql
 
 ---
 
+## 🌟 Why This Project Stands Out
+
+* Real business problem (sales decline)
+* End-to-end KPI reporting workflow
+* Combines customer, revenue, and operations analytics
+* Demonstrates advanced SQL in business context
+* Mirrors real Decision Analytics / Product Analytics work
+
+---
+
 ## 👩‍💻 Author
 
-Alisha Verma
-Entry-level Data Analyst | SQL | Python | Machine Learning | Tableau | GenAI
+**Alisha Verma**
+Data Analyst | SQL | Python | Machine Learning | Tableau | GenAI
+Portfolio focused on KPI design, business analytics, and decision intelligence
